@@ -38,12 +38,15 @@ read_var_cov <- function(fn, grouping_vars) {
 }
 
 by_speaker <- read_var_cov(fn="covariance-by-speaker.txt",
-                           c("Speaker", "Vowel"))
+                           c("Speaker", "Vowel")) %>%
+  mutate(Speaker = as.character(Speaker))
 
 by_time <- read_var_cov(fn="covariance-by-TOD.txt", c("Vowel", "Time"))
 
 by_speaker_time <- read_var_cov(fn="covariance-by-speaker-and-TOD.txt",
-                                c("Vowel", "Speaker", "Time"))
+                                c("Vowel", "Speaker", "Time")) %>%
+  mutate(Speaker = as.character(Speaker))
+
 
 marginal <- read_var_cov(fn="covariance-across-speakers.txt", "Vowel")
 
