@@ -17,19 +17,23 @@ set_dimnames <- function(x, names) {
   x
 }
 
+data_row_to_model <- function(.) {
+  list(mu = c(.$F1.mean, .$F2.mean, .$F3.mean) %>%
+         set_names(c("F1", "F2", "F3")),
+       Sigma = matrix(c(.$F1.var, .$F1.F2.covar, .$F1.F3.covar,
+                        .$F1.F2.covar, .$F2.var, .$F2.F3.covar,
+                        .$F1.F3.covar, .$F2.F3.covar, .$F3.var),
+                      ncol = 3) %>%
+         set_dimnames(list(c("F1", "F2", "F3"),
+                           c("F1", "F2", "F3")))
+       )
+}
+
 read_var_cov <- function(fn, grouping_vars) {
   readr::read_delim(fn, delim="\t") %>%
-    group_by_(.dots=grouping_vars) %>% 
-    do(model = list(mu = c(.$F1.mean, .$F2.mean, .$F3.mean) %>%
-                      set_names(c("F1", "F2", "F3")),
-                    Sigma = matrix(c(.$F1.var, .$F1.F2.covar, .$F1.F3.covar,
-                                     .$F1.F2.covar, .$F2.var, .$F2.F3.covar,
-                                     .$F1.F3.covar, .$F2.F3.covar, .$F3.var),
-                                   ncol = 3) %>%
-                      set_dimnames(list(c("F1", "F2", "F3"),
-                                        c("F1", "F2", "F3")))
-                    )
-       ) %>%
+    group_by_(.dots=grouping_vars) %>%
+    purrrlyr::by_slice(data_row_to_model,
+                       .to="model") %>%
     left_join(vowel_ipa, by="Vowel")
 }
 
