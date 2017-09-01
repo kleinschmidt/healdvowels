@@ -1,0 +1,13 @@
+bibentry(
+  bibtype = "Article",
+  author = c(person("Shannon L M", "Heald"),
+             person("Howard C", "Nusbaum")),
+  doi = "10.1371/journal.pone.0136791",
+  journal = "PLoS ONE",
+  number = "9",
+  title = "Variability in vowel production within and between days",
+  volume = "10",
+  year = "2015",
+  pages = "e0136791",
+  textVersion = "Heald, S. L. M., & Nusbaum, H. C. (2015). Variability in vowel production within and between days. PLoS ONE, 10(9), e0136791. https://doi.org/10.1371/journal.pone.0136791"
+)
