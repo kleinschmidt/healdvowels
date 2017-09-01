@@ -34,7 +34,10 @@ read_var_cov <- function(fn, grouping_vars) {
     group_by_(.dots=grouping_vars) %>%
     purrrlyr::by_slice(data_row_to_model,
                        .to="model") %>%
-    left_join(vowel_ipa, by="Vowel")
+      left_join(vowel_ipa, by="Vowel") %>%
+      mutate(Vowel_ascii = Vowel,
+             Vowel = Vowel_ipa,
+             Vowel_ipa = NULL)
 }
 
 by_speaker <- read_var_cov(fn="covariance-by-speaker.txt",
@@ -53,11 +56,11 @@ marginal <- read_var_cov(fn="covariance-across-speakers.txt", "Vowel")
 models <- tribble(
   ~grouping,  ~models,
   "Marginal", mutate(marginal, group="all"),
-  "Talker", select(by_speaker, group=Speaker, Vowel, Vowel_ipa, model),
-  "Time", select(by_time, group=Time, Vowel, Vowel_ipa, model),
+  "Talker", select(by_speaker, group=Speaker, Vowel, Vowel_ascii, model),
+  "Time", select(by_time, group=Time, Vowel, Vowel_ascii, model),
   "Time+Talker", by_speaker_time %>%
                    mutate(group=paste(Speaker, Time, sep="_")) %>%
-                   select(group, Vowel, Vowel_ipa, model)
+                   select(group, Vowel, Vowel_ascii, model)
 )
 
 devtools::use_data(by_speaker, by_time, by_speaker_time, marginal, models, overwrite=TRUE)
