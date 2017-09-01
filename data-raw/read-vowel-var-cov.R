@@ -4,7 +4,7 @@ library(tidyverse)
 vowel_ipa <- tribble(
   ~Vowel, ~Vowel_ipa,
   "AE",   "æ",
-  "AH",   "a",
+  "AH",   "ɑ",
   "EE",   "i",
   "EH",   "ɛ",
   "IH",   "ɪ",
