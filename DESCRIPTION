@@ -2,13 +2,15 @@ Package: healdvowels
 Title: Data package: summary statistics for Heald and Nussbaum (2015) vowels
 Version: 0.0.1
 Authors@R: c(
-    person("Dave", "Kleinschmidt", email = "dave.f.kleinschmidt@gmail.com", role = c("cre", "com")),
     person("Shannon L M", "Heald", email = "smbowdre@uchicago.edu", role = "aut"),
-    person("Howard C", "Nusbaum", email = "hcnusbaum@uchicago.edu", role = "aut"))
+    person("Howard C", "Nusbaum", email = "hcnusbaum@uchicago.edu", role = "aut"),
+    person("Dave", "Kleinschmidt", email = "dave.f.kleinschmidt@gmail.com", role = c("cre", "com")))
 Description: Means and covariances for F1, F2, and F3 for talkers from Heald and
     Nussbaum (2015, PLos ONE).  Conditioned on talker identity, time of day, and
     gender (as well as overall).
 Depends: R (>= 3.4.1)
+Imports:
+    tibble
 License: CC0
 Encoding: UTF-8
 LazyData: true
