@@ -1,6 +1,6 @@
 Package: healdvowels
 Title: Data package: summary statistics for Heald and Nussbaum (2015) vowels
-Version: 0.0.1
+Version: 0.9000.0
 Authors@R: c(
     person("Shannon L M", "Heald", email = "smbowdre@uchicago.edu", role = "aut"),
     person("Howard C", "Nusbaum", email = "hcnusbaum@uchicago.edu", role = "aut"),

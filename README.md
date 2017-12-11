@@ -111,3 +111,17 @@ healdvowels::marginal$model[[1]]
 These models can be used with
 [`phondisttools`](https://github.com/kleinschmidt/phondisttools) in the same way
 that models trained from raw F1×F2 values can be.
+
+Finally, the `models` tibble collects the four grouped model tibbls above into a
+single tibble:
+
+``` r
+healdvowels::models
+#> # A tibble: 4 x 2
+#>      grouping             models
+#>         <chr>             <list>
+#> 1    Marginal   <tibble [7 x 4]>
+#> 2      Talker  <tibble [56 x 4]>
+#> 3        Time  <tibble [21 x 4]>
+#> 4 Time+Talker <tibble [168 x 4]>
+```
