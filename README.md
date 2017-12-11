@@ -2,8 +2,7 @@
 
 Heald, S. L. M., & Nusbaum, H. C. (2015). Variability in vowel production within
 and between days. _PLoS ONE, 10(9)_, e0136791–e0136791.
-https://doi.org/10.1371/journal.pone.0136791
-
+[doi:10.1371/journal.pone.0136791](https://doi.org/10.1371/journal.pone.0136791)
 
 ## Installation
 
