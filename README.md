@@ -1,4 +1,4 @@
-# `headlvowels`: Distributions of vowels from Heald and Nussbaum (2015)
+# `headlvowels`: Distributions of vowels from Heald and Nusbaum (2015)
 
 Heald, S. L. M., & Nusbaum, H. C. (2015). Variability in vowel production within
 and between days. _PLoS ONE, 10(9)_, e0136791–e0136791.
